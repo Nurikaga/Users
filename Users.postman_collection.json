@@ -8,6 +8,42 @@
 	"item": [
 		{
 			"name": "GET_Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"console.log(responseData[0]);\r",
+							"\r",
+							"pm.test(\"userName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"User 1\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"password\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Password1\");\r",
+							"});\r",
+							"\r",
+							"var responseData = pm.response.json();\r",
+							"console.log(responseData[5]);\r",
+							"\r",
+							"pm.test(\"userName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"User 6\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"password\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Password6\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -35,6 +71,32 @@
 		},
 		{
 			"name": "POST_Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"id\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"userName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"password\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"string\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -70,6 +132,32 @@
 		},
 		{
 			"name": "GET_Users_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"id\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"userName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"User 1\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"password\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Password1\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -98,6 +186,32 @@
 		},
 		{
 			"name": "PUT_Users_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"id\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"userName\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"password\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"string\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -134,6 +248,19 @@
 		},
 		{
 			"name": "DELETE_Users_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [
